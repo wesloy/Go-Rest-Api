@@ -1,6 +1,7 @@
 Este tutorial vai tratar apenas dos arquivos da pasta raiz e a inicialização do projeto.
 Cada uma das subpastas tem seu próprio tutorial.
 
+
 Para instalar o GO na máquina:
 https://go.dev/doc/install
 
