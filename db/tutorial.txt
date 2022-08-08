@@ -1,0 +1,18 @@
+CRIAÇÃO DO CONTAINER DOCKER EM MONGO
+
+1 --> docker run --name mongodb-meunegocio -d -p 27017:27017 mongo
+criando o container e mapeando a porta... 
+
+2 --> docker ps
+validar se tudo foi criado. Ficará semelhante a config abaixo:
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                      NAMES
+a9a892c9eca2   mongo     "docker-entrypoint.s…"   4 minutes ago   Up 4 minutes   0.0.0.0:27017->27017/tcp   mongodb-meunegocio
+
+3 --> Mongo Compass
+Versão gráfica para acompanhar o banco de dados e acompanhar as collections
+https://www.mongodb.com/products/compass
+Após instalação, conectar ao container pelo endereço: mongodb://localhost:27017
+
+4 --> string de conexão no Golang
+https://www.mongodb.com/docs/drivers/go/current/fundamentals/connection/
+mongodb://user:password@host:porta

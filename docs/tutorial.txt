@@ -1,0 +1,11 @@
+Swagger utilizado para documentar e testar a Api
+
+Documentação:
+https://github.com/swaggo/swag
+
+Para o CHI (roteador Http) a documentação é esta:
+https://github.com/swaggo/http-swagger
+
+*** Observação as referências do Swag da documentação principal, para não ter erros, que são:
+>>> go get -u github.com/swaggo/swag/cmd/swag
+>>> go install github.com/swaggo/swag/cmd/swag@latest

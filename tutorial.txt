@@ -1,0 +1,31 @@
+Este tutorial vai tratar apenas dos arquivos da pasta raiz e a inicialização do projeto.
+Cada uma das subpastas tem seu próprio tutorial.
+
+Para instalar o GO na máquina:
+https://go.dev/doc/install
+
+Para iniciar um projeto GO, depois de todoas instalações necessárias feitas é:
+https://go.dev/doc/tutorial/workspaces
+
+Criando um Ola em módulos:
+
+$ mkdir Ola
+$ cd Ola
+$ go mod init example.com/ola
+go: cria um novo go.mod: onde o módulo é example.com/ola
+
+Ou seja, essa é a pasta "raiz" da aplicação, tudo é refenciado à partir de: example.com/ola
+qualquer uma das subpastas, vem após o "ola"... example.com/ola/models..  example.com/ola/db...
+
+
+Uma boa prática é após inicilizar o projeto, já criar as pastas principais com o comando:
+$ mkdir config, db, models, repositores, services, router 
+
+Eu tenho por conceito seguir a seguinte ordem de criação da Api:
+>> Criar o BD (fora da Api)
+>> Conectar ao BD utilizando o "Config"
+>> Criar as models
+>> Consumir as models na repository
+>> Consumir as repositores nas services
+>> Gerar as rotas (Pasta Router)
+>> consumir as rotas no main.go

@@ -1,0 +1,16 @@
+Config tem como objetivo criar uma estrutura que expõem apenas 
+o necessário para outras sessões da Api ao mesmo tempo que consome 
+um arquivo que contêm todas as informações necessárias para comunicação externa.
+
+Foi utilizado uma solução de configuração completa para aplicativos Go (Viper)
+Ele foi projetado para funcionar dentro de um aplicativo e pode lidar com todos os 
+tipos de necessidades e formatos de configuração.
+
+Para instalar o Viper
+>>> go get github.com/spf13/viper
+
+Documentação
+>>> https://pkg.go.dev/github.com/spf13/viper@v1.12.0#section-readme
+
+Nesse projeto foi adotado o arquivo config.toml na pasta raiz e seus dados são consumidos neste
+package config.

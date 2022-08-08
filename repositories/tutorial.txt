@@ -1,0 +1,7 @@
+Objetivo do Repository é utilizando uma Model executar o CRUD no banco de dados
+
+Para este projeto usei MongoDB sua documentação encontra-se em:
+https://www.mongodb.com/docs/drivers/go/current/
+
+>>> Importando o MongoDB para a aplicação Golang
+go get go.mongodb.org/mongo-driver

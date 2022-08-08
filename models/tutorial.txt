@@ -1,0 +1,8 @@
+Os Models vão fornecer os "modelos" que vão refletir no BD e nas Structs (estruturas)
+que vão ser base de trabalho para a Api
+
+Seria uma sequência parecida com esta:
+
+Tabela/Collection >>> Model 
+
+Como deve ser criada em Go, vai depender de qual roteador Http está usando (Chi, Gin, Mux...)

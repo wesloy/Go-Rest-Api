@@ -1,0 +1,9 @@
+[api]
+port = "9000"
+
+[database]
+host = "127.0.0.1"
+port = "49153"
+user = "docker"
+pass = "mongopw"
+database = "meuNegocio"

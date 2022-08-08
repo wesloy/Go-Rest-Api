@@ -1,0 +1,13 @@
+Objetivo dos Services é receber os pedidos externos, processar e devolver informações.
+Consome o Repository e Models, aplica regras de leitura, de negócio, conversões..
+Tem como base os Handlers (manipuladores), tendo como entrada uma Request e devolvendo uma Response.
+Neste exemplo é utilzido o roteado Http CHI, mas tem outros como MUX e GIN.
+
+**Observação:
+Algunas estruturas a pasta Services é chamada de Controllers
+
+Para importar o CHI 
+go get -u github.com/go-chi/chi
+
+Documentação:
+https://pkg.go.dev/github.com/go-chi/chi@v1.5.4#readme-install
