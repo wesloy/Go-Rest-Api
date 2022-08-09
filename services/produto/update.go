@@ -47,7 +47,7 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 	// Mensagem final caso não tenha erros
 	resp := map[string]any{
-		"Status":  http.StatusText(http.StatusOK),
+		"Status":  fmt.Sprintf("%d - %s", http.StatusOK, http.StatusText(http.StatusOK)),
 		"Message": fmt.Sprintf("Informação atualizada com sucesso! ID: %s", id),
 	}
 
