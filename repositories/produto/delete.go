@@ -2,7 +2,6 @@ package produtoRepository
 
 import (
 	"context"
-	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -27,9 +26,7 @@ func Delete(id string) (deletedCount int64, err error) {
 	}
 
 	filter := bson.M{"_id": idFilter}
-
 	result, err := collection.DeleteOne(ctx, filter)
-	fmt.Println(result.DeletedCount)
 
 	return result.DeletedCount, err
 

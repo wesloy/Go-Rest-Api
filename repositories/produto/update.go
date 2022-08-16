@@ -2,7 +2,6 @@ package produtoRepository
 
 import (
 	"context"
-	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -37,7 +36,7 @@ func Update(id string, produto models.Produto) (modifiedCount int64, err error) 
 		}}}
 
 	result, err := collection.UpdateOne(ctx, filter, update)
-	fmt.Println(result.ModifiedCount)
+	// fmt.Println(result.ModifiedCount)
 
 	return result.ModifiedCount, err
 
@@ -66,7 +65,7 @@ func UpdateAll(_key string, _value string, produto models.Produto) (modifiedCoun
 		}}}
 
 	result, err := collection.UpdateMany(ctx, filter, update)
-	fmt.Println(result.ModifiedCount)
+	// fmt.Println(result.ModifiedCount)
 
 	return result.ModifiedCount, err
 

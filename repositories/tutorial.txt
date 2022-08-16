@@ -5,3 +5,7 @@ https://www.mongodb.com/docs/drivers/go/current/
 
 >>> Importando o MongoDB para a aplicação Golang
 go get go.mongodb.org/mongo-driver
+
+>>> Context
+https://pkg.go.dev/context
+Definindo na momento de conexão com o BD a duração do processo

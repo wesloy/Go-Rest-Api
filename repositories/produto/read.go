@@ -2,7 +2,6 @@ package produtoRepository
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -29,9 +28,7 @@ func Get(id string) (produto models.Produto, err error) {
 	}
 
 	filter := bson.M{"_id": idFilter}
-
 	err = collection.FindOne(ctx, filter).Decode(&produto)
-	fmt.Println(produto)
 
 	return
 

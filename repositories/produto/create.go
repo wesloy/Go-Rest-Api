@@ -2,14 +2,14 @@ package produtoRepository
 
 import (
 	"context"
-	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
 	"meunegocio.com.br/api/db"
 	"meunegocio.com.br/api/models"
 )
 
-func Create(produto models.Produto) (insertedID primitive.ObjectID, err error) {
+func Create(produto *models.Produto) (result *mongo.InsertOneResult, err error) {
 
 	// https://www.mongodb.com/docs/drivers/go/current/usage-examples/insertOne/
 
@@ -22,12 +22,8 @@ func Create(produto models.Produto) (insertedID primitive.ObjectID, err error) {
 	defer context.WithCancel(ctx)
 
 	collection := client.Database("estoque").Collection("produtos")
+	result, err = collection.InsertOne(ctx, produto)
 
-	result, err := collection.InsertOne(ctx, produto)
-	fmt.Println(result.InsertedID)
-
-	insertedID, err = primitive.ObjectIDFromHex(fmt.Sprintf("%s", result.InsertedID))
-
-	return insertedID, err
+	return
 
 }

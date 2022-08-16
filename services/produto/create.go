@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"meunegocio.com.br/api/models"
 	repository "meunegocio.com.br/api/repositories/produto"
 )
@@ -28,8 +29,6 @@ func Create(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&produto)
 
-	fmt.Println(produto)
-
 	if err != nil {
 		log.Printf("Erro ao fazer decode do Json: %v", err) // print do erro
 		// informando o erro do servidor
@@ -39,9 +38,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// inserindo no banco de dados...
-	id, err := repository.Create(produto)
-
-	fmt.Println(id)
+	result, err := repository.Create(&produto)
 
 	var resp map[string]any // variável cria uma tupla (Json)
 	if err != nil {
@@ -54,7 +51,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 
 		resp = map[string]any{
 			"Status":  fmt.Sprintf("%d - %s", http.StatusCreated, http.StatusText(http.StatusCreated)),
-			"Message": fmt.Sprintf("Informação inserida com sucesso! ID: %d", id),
+			"Message": fmt.Sprintf("Informação inserida com sucesso! ID: %v", result.InsertedID.(primitive.ObjectID).Hex()),
 		}
 	}
 
