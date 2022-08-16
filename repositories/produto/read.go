@@ -1,6 +1,7 @@
 package produtoRepository
 
 import (
+	"context"
 	"fmt"
 	"log"
 
@@ -18,6 +19,8 @@ func Get(id string) (produto models.Produto, err error) {
 	if err != nil {
 		return
 	}
+	defer context.WithCancel(ctx)
+
 	collection := client.Database("estoque").Collection("produtos")
 
 	idFilter, err := primitive.ObjectIDFromHex(id)
@@ -42,6 +45,7 @@ func GetAll() (produtos []models.Produto, err error) {
 	if err != nil {
 		return
 	}
+	defer context.WithCancel(ctx)
 	collection := client.Database("estoque").Collection("produtos")
 
 	cur, err := collection.Find(ctx, bson.M{}) // bson.M é pra trazer todos

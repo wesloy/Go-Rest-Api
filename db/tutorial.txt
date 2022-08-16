@@ -16,3 +16,9 @@ Após instalação, conectar ao container pelo endereço: mongodb://localhost:27
 4 --> string de conexão no Golang
 https://www.mongodb.com/docs/drivers/go/current/fundamentals/connection/
 mongodb://user:password@host:porta
+
+5 --> Context
+https://pkg.go.dev/context
+Definindo na momento de conexão com o BD que terá um limite de 60 segundos para processar
+Porém pode-se à partir de um contexto (filho), gerar outro contexto (pai) e aplicar a conexão
+para o tempo necessário.

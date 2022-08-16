@@ -1,6 +1,7 @@
 package produtoRepository
 
 import (
+	"context"
 	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -17,6 +18,7 @@ func Update(id string, produto models.Produto) (modifiedCount int64, err error) 
 	if err != nil {
 		return 0, err
 	}
+	defer context.WithCancel(ctx)
 	collection := client.Database("estoque").Collection("produtos")
 
 	idFilter, err := primitive.ObjectIDFromHex(id)
@@ -49,6 +51,7 @@ func UpdateAll(_key string, _value string, produto models.Produto) (modifiedCoun
 	if err != nil {
 		return 0, err
 	}
+	defer context.WithCancel(ctx)
 	collection := client.Database("estoque").Collection("produtos")
 
 	filter := bson.M{_key: _value}

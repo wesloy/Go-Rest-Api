@@ -1,6 +1,7 @@
 package produtoRepository
 
 import (
+	"context"
 	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -18,6 +19,8 @@ func Create(produto models.Produto) (insertedID primitive.ObjectID, err error) {
 	if err != nil {
 		return
 	}
+	defer context.WithCancel(ctx)
+
 	collection := client.Database("estoque").Collection("produtos")
 
 	result, err := collection.InsertOne(ctx, produto)

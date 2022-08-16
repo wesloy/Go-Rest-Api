@@ -1,6 +1,7 @@
 package produtoRepository
 
 import (
+	"context"
 	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -16,6 +17,8 @@ func Delete(id string) (deletedCount int64, err error) {
 	if err != nil {
 		return
 	}
+	defer context.WithCancel(ctx)
+
 	collection := client.Database("estoque").Collection("produtos")
 
 	idFilter, err := primitive.ObjectIDFromHex(id)
